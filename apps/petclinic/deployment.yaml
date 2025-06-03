@@ -16,13 +16,15 @@ spec:
     spec:
       containers:
         - name: petclinic
-          image: springcommunity/spring-petclinic-rest:latest # substitua pelo seu docker hub se desejar
+          image: chentex/spring-petclinic-mysql
           ports:
             - containerPort: 9966
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: mysql
             - name: SPRING_DATASOURCE_URL
               value: jdbc:mysql://mysql:3306/petclinic
             - name: SPRING_DATASOURCE_USERNAME
-              value: petclinic
+              value: root
             - name: SPRING_DATASOURCE_PASSWORD
-              value: petclinic
+              value: root
